@@ -35,9 +35,11 @@ def find_most_recent_buy_signal(self):
 
     return(at_column)                                     
 
-def identify_measure_column(self, method, signal):  # TODO: Issue: signal or trend?
+def identify_measure_column(self, method, signal):  # TODO: Issue: signal or trend? Are all paramaters needed?
 
     '''
+    TODO: document.   Interim logic:
+
     Breakout Method - Bullish:
 
     If using the Breakout Method and the active signal is a P&F buy signal:
@@ -64,9 +66,18 @@ def identify_measure_column(self, method, signal):  # TODO: Issue: signal or tre
  
     '''
 
-    measure_column_index = pd.nan                       # including NOT currently implemented 'horizontal_counts' or 'vertical_counts' methods
+    measure_column_index = pd.nan  # including return value for 'horizontal_counts' or 'vertical_counts' methods that are NOT currently implemented in this function
 
     placeholder = pd.nan
+
+    #   TODO: Issue: Signal or Trend?
+    # 
+    #   If need last trend (think so), can refactor this code (line 2626 of chart.py in Counts branch) into seperate function to get_last_trend(self)
+    #
+    #    # last trend need to be identified from pnfts
+    #    idx = np.where(~np.isnan(self.pnf_timeseries['trend']))[0][-1]
+
+    #   last_trend = int(self.pnf_timeseries['trend'][idx])
 
     if (method is 'breakout'):    
 
